@@ -37,6 +37,7 @@ printf "* ${BLUE}Extracting ${PURPLE}go1.4.3.linux-amd64.tar.gz${BLUE} into ${PU
 rm -rf /usr/local/go1.4.3
 mkdir -p /usr/local/go1.4.3
 tar --strip=1 -zxf go1.4.3.linux-amd64.tar.gz -C /usr/local/go1.4.3
+rm -f go1.4.3.linux-amd64.tar.gz
 
 printf "* ${BLUE}Cloning ${PURPLE}go.googlesource.com/go${BLUE} branch:master ...${NC}\n"
 rm -rf /usr/local/go
@@ -44,11 +45,11 @@ git clone -b master -q https://go.googlesource.com/go /usr/local/go
 cd /usr/local/go/src
 
 printf "* ${BLUE}Building ${PURPLE}go1.5.3${BLUE} ...${NC}\n"
-GOOS=linux GOARCH=amd64 ./bootstrap.bash
+GOOS=linux GOARCH=amd64 ./bootstrap.bash >/dev/null
 ./all.bash >/dev/null
 
 printf "* ${BLUE}Installing gotools${NC}\n"
-go get golang.org/x/tools/cmd/... &>/dev/null
+go get golang.org/x/tools/cmd/... >/dev/null
 
 printf "* ${GREEN}Finished setup, "
 go version
