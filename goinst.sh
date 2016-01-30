@@ -28,6 +28,7 @@ export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
 export GOROOT_BOOTSTRAP=/usr/local/go1.4.3
 EOFBASH
+. /etc/profile
 
 printf "* ${BLUE}Downloading ${PURPLE}go1.4.3.linux-amd64.tar.gz${BLUE} ...${NC}\n"
 wget -q https://storage.googleapis.com/golang/go1.4.3.linux-amd64.tar.gz
@@ -50,6 +51,5 @@ printf "* ${BLUE}Installing gotools${NC}\n"
 go get golang.org/x/tools/cmd/... &>/dev/null
 
 printf "* ${GREEN}Finished setup, "
-. /etc/profile
 go version
 printf "${NC}\n"
