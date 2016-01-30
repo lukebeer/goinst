@@ -28,7 +28,7 @@ apt-get purge golang gccgo-5 &>/dev/null
 printf "* ${BLUE}Updating ${PURPLE}/etc/profile${NC}\n"
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
-export PATH=$PATH:/usr/local/go/bin:$HOME/Development/go/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 export GOROOT_BOOTSTRAP=/usr/local/go1.4.3
 sed -i '#export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin#d' /etc/profile
 sed -i '/GOPATH=/d' /etc/profile
