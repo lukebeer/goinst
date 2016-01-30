@@ -26,17 +26,17 @@ printf "* ${BLUE}Removing any existing golang packages${NC}\n"
 apt-get purge golang gccgo-5 &>/dev/null
 
 printf "* ${BLUE}Updating ${PURPLE}/etc/profile${NC}\n"
-export GOPATH=$HOME/Development/go
+export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
 export PATH=$PATH:/usr/local/go/bin:$HOME/Development/go/bin
 export GOROOT_BOOTSTRAP=/usr/local/go1.4.3
-sed -i '#export PATH=$PATH:/usr/local/go/bin:$HOME/Development/go/bin#d' /etc/profile
+sed -i '#export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin#d' /etc/profile
 sed -i '/GOPATH=/d' /etc/profile
 sed -i '/GOROOT=/d' /etc/profile
 sed -i '/GOROOT_BOOTSTRAP=/d' /etc/profile
 cat << 'EOFBASH' >> /etc/profile
-export PATH=$PATH:/usr/local/go/bin:$HOME/Development/go/bin
-export GOPATH=$HOME/Development/go
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
 export GOROOT_BOOTSTRAP=/usr/local/go1.4.3
 EOFBASH
